@@ -115,19 +115,8 @@
     margin-left: auto;
     margin-right: auto;
   }
-  table th {
-    background: #eee;
-  }
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #ccc;
-    height: 30px;
-    text-align: left;
-    padding: 5px 10px
-  }
+  table, th, td { border: 1px solid black; }
+  th, td { border: 1px solid #CCC; height: 30px; }
   caption { font-weight: bold; }
 </style>
 <title>
@@ -230,6 +219,22 @@
       </div>
       {% endif %}
     </div>
+
+    <div class="row">
+    {% if thingstoknow and (thingstoknow.intervention) %}
+    <div class="col card">
+      <h2>Things to Know</h2>
+        {% if thingstoknow.intervention %}
+          <h3>Intervention</h3>
+            {{ render_considerations(thingstoknow.intervention) }}
+        {% endif %}
+
+    </div>
+    {% endif %}
+    </div>
+
+
+
     {% if model_parameters.data %}
       {{ render_all_datasets(model_parameters.data) }}
     {% endif %}
