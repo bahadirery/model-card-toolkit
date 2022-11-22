@@ -214,6 +214,56 @@ class SensitiveData(BaseModelCardField):
 
   _proto_type: dataclasses.InitVar[type(
       model_card_pb2.SensitiveData)] = model_card_pb2.SensitiveData
+ # CUSTOM CLASSES
+@dataclasses.dataclass
+class Intervention(BaseModelCardField):
+    """Assistance or Assessment
+    Attributes:
+    description: How the application affects humans.
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.Intervention)] = model_card_pb2.Intervention
+
+
+@dataclasses.dataclass
+class Thingstoknow(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    intervention: List[Intervention] = dataclasses.field(default_factory=list)
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.Thingstoknow)] = model_card_pb2.Thingstoknow
+
+
+@dataclasses.dataclass
+class ModelCard(BaseModelCardField):
+  """Fields used to generate the Model Card.
+  Attributes:
+    model_details: Descriptive metadata for the model.
+    model_parameters: Technical metadata for the model.
+    quantitative_analysis: Quantitative analysis of model performance.
+    considerations: Any considerations related to model construction, training,
+      and application.
+    thingstoknow: Stuff.
+  """
+  model_details: ModelDetails = dataclasses.field(default_factory=ModelDetails)
+  model_parameters: ModelParameters = dataclasses.field(
+      default_factory=ModelParameters)
+  quantitative_analysis: QuantitativeAnalysis = dataclasses.field(
+      default_factory=QuantitativeAnalysis)
+  considerations: Considerations = dataclasses.field(
+      default_factory=Considerations)
+  #CUSTOM FIELDS
+  thingstoknow: Thingstoknow = dataclasses.field(
+      default_factory=Thingstoknow)
+
+  _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.ModelCard)] = model_card_pb2.ModelCard   
+    
+
 
 
 @dataclasses.dataclass
