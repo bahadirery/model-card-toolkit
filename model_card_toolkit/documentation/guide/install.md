@@ -31,7 +31,7 @@ Build the pip package from source:
 ```posix-terminal
 pip install wheel
 
-cd model_card_toolkit
+cd model-card-toolkit
 
 python3 setup.py sdist bdist_wheel
 ```
