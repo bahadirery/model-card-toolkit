@@ -414,7 +414,9 @@ class ModelCardToolkit():
         model_details=model_card.model_details,
         model_parameters=model_card.model_parameters,
         quantitative_analysis=model_card.quantitative_analysis,
-        considerations=model_card.considerations)
+        considerations=model_card.considerations,
+        # CUSTOM FIELDS
+        thingstoknow=model_card.thingstoknow)
 
     # Write the model card document file and return its contents.
     mode_card_file_path = os.path.join(self._model_cards_dir, output_file)
