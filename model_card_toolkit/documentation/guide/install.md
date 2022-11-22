@@ -23,7 +23,7 @@ compiling Model Card Toolkit requires
 First, clone the github repo:
 
 ```posix-terminal
-git clone https://github.com/tensorflow/model-card-toolkit.git
+git clone https://github.com/bahadirery/model-card-toolkit.git
 ```
 
 Build the pip package from source:
