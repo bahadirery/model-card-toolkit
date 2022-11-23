@@ -39,7 +39,8 @@ python3 setup.py sdist bdist_wheel
 Finally, install your locally built package:
 
 ```posix-terminal
-pip install --upgrade ./dist/*pkg.whl
+cd dist
+pip install --upgrade model_card_toolkit-1.3.3.dev0-py3-none-any.whl
 ```
 
 ## Filing a Bug
