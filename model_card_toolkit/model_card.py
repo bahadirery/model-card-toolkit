@@ -236,34 +236,7 @@ class Thingstoknow(BaseModelCardField):
     intervention: List[Intervention] = dataclasses.field(default_factory=list)
     _proto_type: dataclasses.InitVar[type(
       model_card_pb2.Thingstoknow)] = model_card_pb2.Thingstoknow
-
-
-@dataclasses.dataclass
-class ModelCard(BaseModelCardField):
-  """Fields used to generate the Model Card.
-  Attributes:
-    model_details: Descriptive metadata for the model.
-    model_parameters: Technical metadata for the model.
-    quantitative_analysis: Quantitative analysis of model performance.
-    considerations: Any considerations related to model construction, training,
-      and application.
-    thingstoknow: Stuff.
-  """
-  model_details: ModelDetails = dataclasses.field(default_factory=ModelDetails)
-  model_parameters: ModelParameters = dataclasses.field(
-      default_factory=ModelParameters)
-  quantitative_analysis: QuantitativeAnalysis = dataclasses.field(
-      default_factory=QuantitativeAnalysis)
-  considerations: Considerations = dataclasses.field(
-      default_factory=Considerations)
-  #CUSTOM FIELDS
-  thingstoknow: Thingstoknow = dataclasses.field(
-      default_factory=Thingstoknow)
-
-  _proto_type: dataclasses.InitVar[type(
-      model_card_pb2.ModelCard)] = model_card_pb2.ModelCard   
     
-
 
 
 @dataclasses.dataclass
@@ -518,6 +491,11 @@ class ModelCard(BaseModelCardField):
       default_factory=QuantitativeAnalysis)
   considerations: Considerations = dataclasses.field(
       default_factory=Considerations)
+
+  ## Custom Fields
+
+  thingstoknow: Thingstoknow = dataclasses.field(
+    default_factory=Thingstoknow)
 
   _proto_type: dataclasses.InitVar[type(
       model_card_pb2.ModelCard)] = model_card_pb2.ModelCard
