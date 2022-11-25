@@ -302,5 +302,5 @@ message ModelCard {
   optional Considerations considerations = 4;
 
   // CUSTOM FIELDS
-  optional Thingstoknow thingstoknow = 5;
+  optional Datasetdetails datasetdetails = 5;
 }
