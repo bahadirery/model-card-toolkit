@@ -459,7 +459,7 @@ class Datasetdetails(BaseModelCardField):
     description: Optional[str] = None
 
     _proto_type: dataclasses.InitVar[type(
-      model_card_pb2.Intervention)] = model_card_pb2.Intervention
+      model_card_pb2.Datasetdetails)] = model_card_pb2.Datasetdetails
 
 
 @dataclasses.dataclass
@@ -468,7 +468,7 @@ class MeaningOfOutput(BaseModelCardField):
     Attributes:
     intervention: Is the model used for human "assistance" or for "assessment" of humans?
     """
-    MeaningOfOutput: List[Datasetdetails] = dataclasses.field(default_factory=list)
+    meaning_of_output: List[Datasetdetails] = dataclasses.field(default_factory=list)
     _proto_type: dataclasses.InitVar[type(
       model_card_pb2.MeaningOfOutput)] = model_card_pb2.MeaningOfOutput
 
@@ -478,7 +478,7 @@ class UtilizeOutput(BaseModelCardField):
     Attributes:
     intervention: Is the model used for human "assistance" or for "assessment" of humans?
     """
-    UtilizeOutput: List[Datasetdetails] = dataclasses.field(default_factory=list)
+    utilize_output: List[Datasetdetails] = dataclasses.field(default_factory=list)
     _proto_type: dataclasses.InitVar[type(
       model_card_pb2.UtilizeOutput)] = model_card_pb2.UtilizeOutput
     
@@ -505,7 +505,7 @@ class ModelCard(BaseModelCardField):
 
   ## Custom Fields
 
-  Datasetdetails: Datasetdetails = dataclasses.field(
+  dataset_details: Datasetdetails = dataclasses.field(
     default_factory=Datasetdetails)
 
   _proto_type: dataclasses.InitVar[type(
