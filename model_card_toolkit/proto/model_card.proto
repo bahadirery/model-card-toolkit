@@ -266,13 +266,22 @@ message Considerations {
 
 // CUSTOM FIELDS
 // How the model affects humans.
-message Intervention {
+message MeaningOfOutput {
   // Assistance or Assessment
   optional string description = 1;
 }
-message Thingstoknow {
+
+message UtilizeOutput {
+  // Assistance or Assessment
+  optional string description = 1;
+}
+
+message Datasetdetails {
   // Things you should know
-  repeated Intervention intervention = 1;
+  repeated MeaningOfOutput meaningOfOutput = 1;
+  
+  // Things you should know
+  repeated UtilizeOutput utilizeOutput = 2;
 
 }
 
