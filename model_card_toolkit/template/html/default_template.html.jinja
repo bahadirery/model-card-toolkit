@@ -222,12 +222,16 @@
     </div>
 
     <div class="row">
-    {% if thingstoknow and (thingstoknow.intervention) %}
+    {% if Datasetdetails and (Datasetdetails.MeaningOfOutput or Datasetdetails.UtilizeOutput ) %}
     <div class="col card">
       <h2>Things to Know</h2>
-        {% if thingstoknow.intervention %}
-          <h3>Intervention</h3>
-            {{ render_considerations(thingstoknow.intervention) }}
+        {% if Datasetdetails.MeaningOfOutput %}
+          <h3>MeaningOfOutput</h3>
+            {{ render_considerations(Datasetdetails.MeaningOfOutput) }}
+        {% endif %}
+        {% if Datasetdetails.UtilizeOutput %}
+          <h3>UtilizeOutput</h3>
+            {{ render_considerations(Datasetdetails.UtilizeOutput) }}
         {% endif %}
 
     </div>
