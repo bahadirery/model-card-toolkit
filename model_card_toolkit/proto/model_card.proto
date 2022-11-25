@@ -278,16 +278,16 @@ message UtilizeOutput {
 
 message Datasetdetails {
   // Things you should know
-  repeated MeaningOfOutput meaningOfOutput = 1;
+  repeated MeaningOfOutput meaning_of_output = 1;
   
   // Things you should know
-  repeated UtilizeOutput utilizeOutput = 2;
+  repeated UtilizeOutput utilize_output = 2;
 
 }
 
 
 // Fields used to generate the Model Card.
-// The next tag number is 5.
+// The next tag number is 6.
 message ModelCard {
   // Descriptive metadata for the model.
   optional ModelDetails model_details = 1;
@@ -302,5 +302,5 @@ message ModelCard {
   optional Considerations considerations = 4;
 
   // CUSTOM FIELDS
-  optional Datasetdetails datasetdetails = 5;
+  optional Datasetdetails dataset_details = 5;
 }
