@@ -214,29 +214,6 @@ class SensitiveData(BaseModelCardField):
 
   _proto_type: dataclasses.InitVar[type(
       model_card_pb2.SensitiveData)] = model_card_pb2.SensitiveData
- # CUSTOM CLASSES
-@dataclasses.dataclass
-class Intervention(BaseModelCardField):
-    """Assistance or Assessment
-    Attributes:
-    description: How the application affects humans.
-    """
-    description: Optional[str] = None
-
-    _proto_type: dataclasses.InitVar[type(
-      model_card_pb2.Intervention)] = model_card_pb2.Intervention
-
-
-@dataclasses.dataclass
-class Thingstoknow(BaseModelCardField):
-    """Things to know
-    Attributes:
-    intervention: Is the model used for human "assistance" or for "assessment" of humans?
-    """
-    intervention: List[Intervention] = dataclasses.field(default_factory=list)
-    _proto_type: dataclasses.InitVar[type(
-      model_card_pb2.Thingstoknow)] = model_card_pb2.Thingstoknow
-    
 
 
 @dataclasses.dataclass
@@ -472,6 +449,40 @@ class Considerations(BaseModelCardField):
   _proto_type: dataclasses.InitVar[type(
       model_card_pb2.Considerations)] = model_card_pb2.Considerations
 
+ # CUSTOM CLASSES
+@dataclasses.dataclass
+class Datasetdetails(BaseModelCardField):
+    """Assistance or Assessment
+    Attributes:
+    description: What is the meaning of the output?.
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.Intervention)] = model_card_pb2.Intervention
+
+
+@dataclasses.dataclass
+class MeaningOfOutput(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    MeaningOfOutput: List[Datasetdetails] = dataclasses.field(default_factory=list)
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.MeaningOfOutput)] = model_card_pb2.MeaningOfOutput
+
+@dataclasses.dataclass
+class UtilizeOutput(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    UtilizeOutput: List[Datasetdetails] = dataclasses.field(default_factory=list)
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.UtilizeOutput)] = model_card_pb2.UtilizeOutput
+    
+    
 
 @dataclasses.dataclass
 class ModelCard(BaseModelCardField):
@@ -494,8 +505,8 @@ class ModelCard(BaseModelCardField):
 
   ## Custom Fields
 
-  thingstoknow: Thingstoknow = dataclasses.field(
-    default_factory=Thingstoknow)
+  Datasetdetails: Datasetdetails = dataclasses.field(
+    default_factory=Datasetdetails)
 
   _proto_type: dataclasses.InitVar[type(
       model_card_pb2.ModelCard)] = model_card_pb2.ModelCard
