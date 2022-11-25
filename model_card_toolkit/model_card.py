@@ -449,26 +449,14 @@ class Considerations(BaseModelCardField):
   _proto_type: dataclasses.InitVar[type(
       model_card_pb2.Considerations)] = model_card_pb2.Considerations
 
- # CUSTOM CLASSES
-@dataclasses.dataclass
-class Datasetdetails(BaseModelCardField):
-    """Assistance or Assessment
-    Attributes:
-    description: What is the meaning of the output?.
-    """
-    description: Optional[str] = None
-
-    _proto_type: dataclasses.InitVar[type(
-      model_card_pb2.Datasetdetails)] = model_card_pb2.Datasetdetails
-
-
 @dataclasses.dataclass
 class MeaningOfOutput(BaseModelCardField):
     """Things to know
     Attributes:
     intervention: Is the model used for human "assistance" or for "assessment" of humans?
     """
-    meaning_of_output: List[Datasetdetails] = dataclasses.field(default_factory=list)
+    description: Optional[str] = None
+
     _proto_type: dataclasses.InitVar[type(
       model_card_pb2.MeaningOfOutput)] = model_card_pb2.MeaningOfOutput
 
@@ -478,9 +466,28 @@ class UtilizeOutput(BaseModelCardField):
     Attributes:
     intervention: Is the model used for human "assistance" or for "assessment" of humans?
     """
-    utilize_output: List[Datasetdetails] = dataclasses.field(default_factory=list)
+    description: Optional[str] = None
+
     _proto_type: dataclasses.InitVar[type(
       model_card_pb2.UtilizeOutput)] = model_card_pb2.UtilizeOutput
+
+ # CUSTOM CLASSES
+@dataclasses.dataclass
+class Datasetdetails(BaseModelCardField):
+    """Assistance or Assessment
+    Attributes:
+    description: What is the meaning of the output?.
+    """
+
+    meaning_of_output: List[MeaningOfOutput] = dataclasses.field(default_factory=list)
+
+    utilize_output: List[UtilizeOutput] = dataclasses.field(default_factory=list)
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.Datasetdetails)] = model_card_pb2.Datasetdetails
+
+
+
     
     
 
