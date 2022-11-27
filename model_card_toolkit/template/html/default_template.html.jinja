@@ -191,6 +191,8 @@
               <tr><td>{{ kv.key }}</td><td>{{ kv.value }}</td></tr>{% endfor %}</table>{% endif %}
         </div>
       {% endif %}
+
+
       {% if considerations and (considerations.users or considerations.use_cases or considerations.limitations or considerations.tradeoffs or considerations.ethical_considerations) %}
       <div class="col card">
         <h2>Considerations</h2>
@@ -222,42 +224,56 @@
     </div>
 
     <div class="row">
-    {% if dataset_details and (dataset_details.meaning_of_output or dataset_details.utilize_output ) %}
-    <div class="col card">
-      <h2>Dataset Details</h2>
-        {% if dataset_details.meaning_of_output %}
-          <h3>Meaning Of Output</h3>
-            {{ render_considerations(dataset_details.meaning_of_output) }}
-        {% endif %}
-        {% if dataset_details.utilize_output %}
-          <h3>Utilize Output</h3>
-            {{ render_considerations(dataset_details.utilize_output) }}
-        {% endif %}
+    {% if dataset_details and (dataset_details.meaning_of_output or dataset_details.utilize_output or dataset_details.not_used_data  ) %}
+    
+      <div class="col card">
+        <h2>Dataset Details</h2>
+          {% if dataset_details.meaning_of_output %}
+            <h3>Meaning Of Output</h3>
+              {{ render_considerations(dataset_details.meaning_of_output) }}
+          {% endif %}
+          {% if dataset_details.utilize_output %}
+            <h3>Utilize Output</h3>
+              {{ render_considerations(dataset_details.utilize_output) }}
+          {% endif %}
+          {% if dataset_details.not_used_data %}
+            <h3>Not Used Data</h3>
+              {{ render_considerations(dataset_details.not_used_data) }}
+          {% endif %}
+
+      </div>
+
+      {% if performance_details and (performance_details.scope or performance_details.reliability or performance_details.mistake_frequency or performance_details.likelyhood_of_correction or performance_details.mistakes ) %}
+      <div class="col card">
+        <h2>Performance Details</h2>
+          {% if performance_details.scope %}
+            <h3>Scope</h3>
+              {{ render_considerations(performance_details.scope) }}
+          {% endif %}
+          {% if performance_details.reliability %}
+            <h3>Reliability</h3>
+              {{ render_considerations(performance_details.reliability) }}
+          {% endif %}
+          {% if performance_details.mistake_frequency %}
+            <h3>Mistake Frequency</h3>
+              {{ render_considerations(performance_details.mistake_frequency) }}
+          {% endif %}
+          {% if performance_details.likelyhood_of_correction %}
+            <h3>Likelyhood of Correctiont</h3>
+              {{ render_considerations(performance_details.likelyhood_of_correction) }}
+          {% endif %}
+          {% if performance_details.mistakes %}
+            <h3>Possible Mistakes</h3>
+              {{ render_considerations(performance_details.mistakes) }}
+          {% endif %}
+      {% endif %}
+      </div>
+
 
     </div>
     {% endif %}
     </div>
     
-    
-    <div class="col card">
-    {% if dataset_details and (dataset_details.meaning_of_output or dataset_details.utilize_output ) %}
-    <div class="col card">
-      <h2>Dataset Details</h2>
-        {% if dataset_details.meaning_of_output %}
-          <h3>Meaning Of Output</h3>
-            {{ render_considerations(dataset_details.meaning_of_output) }}
-        {% endif %}
-        {% if dataset_details.utilize_output %}
-          <h3>Utilize Output</h3>
-            {{ render_considerations(dataset_details.utilize_output) }}
-        {% endif %}
-
-    </div>
-    {% endif %}
-    </div>
-
-
-
 
     {% if model_parameters.data %}
       {{ render_all_datasets(model_parameters.data) }}
