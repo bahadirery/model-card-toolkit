@@ -471,6 +471,17 @@ class UtilizeOutput(BaseModelCardField):
     _proto_type: dataclasses.InitVar[type(
       model_card_pb2.UtilizeOutput)] = model_card_pb2.UtilizeOutput
 
+@dataclasses.dataclass
+class NotUsedData(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.NotUsedData)] = model_card_pb2.NotUsedData
+
  # CUSTOM CLASSES
 @dataclasses.dataclass
 class Datasetdetails(BaseModelCardField):
@@ -483,8 +494,91 @@ class Datasetdetails(BaseModelCardField):
 
     utilize_output: List[UtilizeOutput] = dataclasses.field(default_factory=list)
 
+    not_used_data: List[NotUsedData] = dataclasses.field(default_factory=list)
+
     _proto_type: dataclasses.InitVar[type(
       model_card_pb2.Datasetdetails)] = model_card_pb2.Datasetdetails
+
+@dataclasses.dataclass
+class Scope(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.Scope)] = model_card_pb2.Scope
+
+@dataclasses.dataclass
+class Reliability(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.Reliability)] = model_card_pb2.Reliability
+
+@dataclasses.dataclass
+class MistakeFrequency(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.MistakeFrequency)] = model_card_pb2.MistakeFrequency
+
+@dataclasses.dataclass
+class LikelyhoodOfCorrection(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.LikelyhoodOfCorrection)] = model_card_pb2.LikelyhoodOfCorrection
+
+@dataclasses.dataclass
+class Mistake(BaseModelCardField):
+    """Things to know
+    Attributes:
+    intervention: Is the model used for human "assistance" or for "assessment" of humans?
+    """
+    description: Optional[str] = None
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.Mistake)] = model_card_pb2.Mistake
+
+
+
+
+@dataclasses.dataclass
+class PerformanceDetails(BaseModelCardField):
+    """Assistance or Assessment
+    Attributes:
+    description: What is the meaning of the output?.
+    """
+
+    scope: List[Scope] = dataclasses.field(default_factory=list)
+
+    reliability: List[Reliability] = dataclasses.field(default_factory=list)
+
+    mistake_frequency: List[MistakeFrequency] = dataclasses.field(default_factory=list)
+
+    likelyhood_of_correction: List[LikelyhoodOfCorrection] = dataclasses.field(default_factory=list)
+
+    mistakes: List[Mistake] = dataclasses.field(default_factory=list)
+
+    _proto_type: dataclasses.InitVar[type(
+      model_card_pb2.PerformanceDetails)] = model_card_pb2.PerformanceDetails
+
+
+
 
 
 
