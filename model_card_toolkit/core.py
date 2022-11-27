@@ -416,7 +416,8 @@ class ModelCardToolkit():
         quantitative_analysis=model_card.quantitative_analysis,
         considerations=model_card.considerations,
         # CUSTOM FIELDS
-        dataset_details=model_card.dataset_details)
+        dataset_details=model_card.dataset_details,
+        performance_details=model_card.performance_details)
 
     # Write the model card document file and return its contents.
     mode_card_file_path = os.path.join(self._model_cards_dir, output_file)
