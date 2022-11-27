@@ -608,6 +608,9 @@ class ModelCard(BaseModelCardField):
 
   dataset_details: Datasetdetails = dataclasses.field(
     default_factory=Datasetdetails)
+    
+  performance_details: PerformanceDetails = dataclasses.field(
+    default_factory=PerformanceDetails)
 
   _proto_type: dataclasses.InitVar[type(
       model_card_pb2.ModelCard)] = model_card_pb2.ModelCard
