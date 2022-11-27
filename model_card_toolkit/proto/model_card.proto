@@ -276,12 +276,67 @@ message UtilizeOutput {
   optional string description = 1;
 }
 
+message NotUsedData {
+  // Assistance or Assessment
+  optional string description = 1;
+}
+
+
 message Datasetdetails {
   // Things you should know
   repeated MeaningOfOutput meaning_of_output = 1;
   
   // Things you should know
   repeated UtilizeOutput utilize_output = 2;
+  
+   // Things you should know
+  repeated NotUsedData not_used_data = 3;
+
+}
+
+message Scope {
+  // Assistance or Assessment
+  optional string description = 1;
+}
+
+message Reliability {
+  // Assistance or Assessment
+  optional string description = 1;
+}
+
+message MistakeFrequency {
+  // Assistance or Assessment
+  optional string description = 1;
+}
+
+message LikelyhoodOfCorrection {
+  // Assistance or Assessment
+  optional string description = 1;
+}
+
+message Mistake {
+  // Assistance or Assessment
+  optional string description = 1;
+}
+
+
+
+
+message PerformanceDetails {
+  // Things you should know
+  repeated Scope scope = 1;
+  
+  // Things you should know
+  repeated Reliability reliability = 2;
+  
+   // Things you should know
+  repeated MistakeFrequency mistake_frequency = 3;
+  
+   // Things you should know
+  repeated LikelyhoodOfCorrection likelyhood_of_correction = 4;
+  
+   // Things you should know
+  repeated Mistake mistakes = 5;
 
 }
 
@@ -303,4 +358,6 @@ message ModelCard {
 
   // CUSTOM FIELDS
   optional Datasetdetails dataset_details = 5;
+  
+  optional PerformanceDetails performance_details = 6;
 }
