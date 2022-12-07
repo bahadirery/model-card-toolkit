@@ -82,7 +82,9 @@
 {% macro render_metrics_graphics(graphics) %}
   <div class="row">
     <div class="col">
-      {{ graphics.description }}
+      {% if graphics.description %}
+          <p>{{ graphics.description }}</p>
+      {% endif %}
       {{ render_graphics(graphics.collection) }}
     </div>
   </div>
