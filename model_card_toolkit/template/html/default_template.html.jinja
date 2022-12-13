@@ -82,9 +82,7 @@
 {% macro render_metrics_graphics(graphics) %}
   <div class="row">
     <div class="col">
-      {% if graphics.description %}
-         <p>{{ graphics.description }}</p>
-      {% endif %}
+      {% if graphics.description %}<p>{{ graphics.description }}</p>{% endif %}
       {{ render_graphics(graphics.collection) }}
     </div>
   </div>
@@ -117,19 +115,34 @@
     margin-left: auto;
     margin-right: auto;
   }
-  table, th, td { border: 1px solid black; }
-  th, td { border: 1px solid #CCC; height: 30px; }
+  table {
+    margin-bottom: 10px;
+  }
+  table th {
+    background: #eee;
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    height: 30px;
+    text-align: left;
+    padding: 5px 10px
+  }
   caption { font-weight: bold; }
 </style>
 <title>
-  Model Card for {{ model_details.name }}
+  Model Card{% if model_details.name %} for {{ model_details.name }}{% endif %}
 </title>
 </head>
 <body>
   <h1>
-    Model Card for {{ model_details.name }}
+    Model Card{% if model_details.name %} for {{ model_details.name }}{% endif %}
   </h1>
     <div class="row">
+    {% if model_details %}
       <div class="col card">
         <h2>Model Details</h2>
           {% if model_details.overview %}<h3>Overview</h3>
@@ -169,6 +182,7 @@
               {% endfor %}
               </ul>{% endif %}
         </div>
+      {% endif %}
       {% if model_parameters.model_architecture or model_parameters.input_format or model_parameters.input_format_map or model_parameters.output_format or model_parameters.output_format_map %}
         <div class="col card">
           <h2>Model Parameters</h2>
