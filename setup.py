@@ -29,19 +29,17 @@ from setuptools import setup
 
 
 REQUIRED_PACKAGES = [
-    'absl-py>=0.9,<1.1',
-    'jinja2>=3.1,<3.2',
-    'matplotlib>=3.2.0,<4',
-    'jsonschema>=3.2.0,<4',
-    'tensorflow-data-validation>=1.5.0,<2.0.0',
-    'tensorflow-model-analysis>=0.36.0,<0.42.0',
-    'tensorflow-metadata>=1.5.0,<2.0.0',
-    'ml-metadata>=1.5.0,<2.0.0',
+    "absl-py>=0.9,<0.11",
+    "semantic-version>=2.8.0,<3",
+    "jinja2>=2.10,<3",
+    "matplotlib>=3.2.0,<4",
+    "jsonschema>=3.2.0,<4",
     'dataclasses;python_version<"3.7"',
+    "markupsafe>=2.0.1,<2.0.2",
+    "protobuf==3.19.3"
+
 ]
 
-TESTS_REQUIRE = ['tensorflow-datasets']
-EXTRAS_REQUIRE = {'test':  TESTS_REQUIRE}
 
 # Get version from version module.
 with open('model_card_toolkit/version.py') as fp:
@@ -114,10 +112,10 @@ setup(
     author_email='tensorflow-extended-dev@googlegroups.com',
     packages=[
         'model_card_toolkit',
-        'model_card_toolkit.documentation',
-        'model_card_toolkit.documentation.examples',
+        #'model_card_toolkit.documentation',
+        #'model_card_toolkit.documentation.examples',
         'model_card_toolkit.proto',
-        'model_card_toolkit.tfx',
+        #'model_card_toolkit.tfx',
         'model_card_toolkit.utils',
     ],
     package_data={
@@ -125,8 +123,8 @@ setup(
     },
     python_requires='>=3.6,<4',
     install_requires=REQUIRED_PACKAGES,
-    tests_require=TESTS_REQUIRE,
-    extras_require=EXTRAS_REQUIRE,
+    #tests_require=TESTS_REQUIRE,
+    #extras_require=EXTRAS_REQUIRE,
     # PyPI package information.
     classifiers=[
         'Development Status :: 4 - Beta',

@@ -1,4 +1,4 @@
-# Copyright 2020 Google LLC
+# Copyright 2021 Cylynx
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """A module to streamline and automate generation of Model Cards."""
-from model_card_toolkit.core import ModelCardToolkit
-from model_card_toolkit.model_card import *
-from model_card_toolkit.tfx.component import ModelCardGenerator
-from model_card_toolkit.utils.source import *
-from model_card_toolkit.version import __version__
+from .model_card import *
+from .model_card_toolkit import ModelCardToolkit
+from .version import __version__
