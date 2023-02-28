@@ -58,3 +58,18 @@ Model cards are stored in proto as an intermediate format. You can see the model
 ## References
 
 [1] https://arxiv.org/abs/1810.03993
+
+## Build from source 
+
+```sh
+
+pip install wheel
+
+python3 setup.py sdist bdist_wheel
+
+cd dist
+
+pip install --upgrade model_card_toolkit-2.0.0.dev0-py3-none-any.whl
+
+```
+
